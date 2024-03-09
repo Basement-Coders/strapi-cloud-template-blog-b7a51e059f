@@ -821,19 +821,20 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   info: {
     singularName: 'article';
     pluralName: 'articles';
-    displayName: 'Collection';
+    displayName: 'Article';
     description: 'Create your blog content';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     description: Attribute.Text &
+      Attribute.Required &
       Attribute.SetMinMaxLength<{
-        maxLength: 80;
+        minLength: 200;
       }>;
-    slug: Attribute.UID<'api::article.article', 'title'>;
+    slug: Attribute.UID<'api::article.article', 'title'> & Attribute.Required;
     cover: Attribute.Media;
     author: Attribute.Relation<
       'api::article.article',
