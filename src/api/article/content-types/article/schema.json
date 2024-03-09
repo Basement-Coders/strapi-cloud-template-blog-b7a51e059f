@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
+    "displayName": "Collection",
     "description": "Create your blog content"
   },
   "options": {
@@ -45,14 +45,10 @@
       "target": "api::category.category",
       "inversedBy": "articles"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
-      ]
+    "game_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::game-list.game-list"
     }
   }
 }

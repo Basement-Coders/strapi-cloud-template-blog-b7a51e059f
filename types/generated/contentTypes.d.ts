@@ -821,7 +821,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   info: {
     singularName: 'article';
     pluralName: 'articles';
-    displayName: 'Article';
+    displayName: 'Collection';
     description: 'Create your blog content';
   };
   options: {
@@ -845,8 +845,10 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    blocks: Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
+    game_list: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::game-list.game-list'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
