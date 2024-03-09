@@ -24,6 +24,12 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article",
+      "mappedBy": "game"
     }
   }
 }

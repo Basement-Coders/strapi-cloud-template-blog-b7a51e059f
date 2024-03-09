@@ -846,7 +846,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    games: Attribute.Relation<
+    game: Attribute.Relation<
       'api::article.article',
       'oneToOne',
       'api::game-list.game-list'
@@ -986,6 +986,11 @@ export interface ApiGameListGameList extends Schema.CollectionType {
       'api::game-list-item.game-list-item'
     >;
     slug: Attribute.UID;
+    article: Attribute.Relation<
+      'api::game-list.game-list',
+      'oneToOne',
+      'api::article.article'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -48,10 +48,11 @@
       "target": "api::category.category",
       "inversedBy": "articles"
     },
-    "games": {
+    "game": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::game-list.game-list"
+      "target": "api::game-list.game-list",
+      "inversedBy": "article"
     }
   }
 }
