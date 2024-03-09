@@ -48,7 +48,7 @@
       "target": "api::category.category",
       "inversedBy": "articles"
     },
-    "game_list": {
+    "games": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::game-list.game-list"
