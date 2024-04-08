@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "popular_game_lists",
+  "info": {
+    "singularName": "popular-game-list",
+    "pluralName": "popular-game-lists",
+    "displayName": "Popular Game List"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slugs": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

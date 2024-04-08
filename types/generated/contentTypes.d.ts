@@ -1104,6 +1104,36 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiPopularGameListPopularGameList extends Schema.SingleType {
+  collectionName: 'popular_game_lists';
+  info: {
+    singularName: 'popular-game-list';
+    pluralName: 'popular-game-lists';
+    displayName: 'Popular Game List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slugs: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::popular-game-list.popular-game-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::popular-game-list.popular-game-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1131,6 +1161,7 @@ declare module '@strapi/types' {
       'api::game-list-item.game-list-item': ApiGameListItemGameListItem;
       'api::global.global': ApiGlobalGlobal;
       'api::news-post.news-post': ApiNewsPostNewsPost;
+      'api::popular-game-list.popular-game-list': ApiPopularGameListPopularGameList;
     }
   }
 }
